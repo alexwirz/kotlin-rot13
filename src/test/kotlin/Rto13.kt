@@ -1,16 +1,11 @@
 import io.kotlintest.specs.FlatSpec
 
-fun rot13(s: String): String {
-    return s.map { if(it.isLetter()) toLetter(alphabetIndex(it) + 13) else it }.joinToString("")
-}
+fun rot13(s: String): String =
+        s.map { if(it.isLetter()) toLetter(alphabetIndex(it) + 13) else it }.joinToString("")
 
-fun toLetter(x: Int): Char {
-    return (x.mod(26) + 65).toChar()
-}
+fun toLetter(x: Int): Char = (x.mod(26) + 65).toChar()
 
-fun alphabetIndex(letter: Char): Int {
-    return letter.toUpperCase().toInt() - 65
-}
+fun alphabetIndex(letter: Char): Int = letter.toUpperCase().toInt() - 65
 
 class Rot13Specs : FlatSpec() {
     init {
